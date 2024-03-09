@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matching App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #7ebbf8;
+            text-align: center;
+            margin: 50px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        h1 {
+            color: #7300ff;
+        }
+
+        form {
+            background-color: #2c2b2b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: #df1616;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #f8c7c7;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a785;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        h2, p {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Regex Matching Web App</h1>
+    <form action="/results" method="post">
+        <label for="test_string">Test String:</label>
+        <input type="text" id="test_string" name="test_string" class="form-control" required>
+        <label for="regex_pattern">Regex Pattern:</label>
+        <input type="text" id="regex_pattern" name="regex_pattern" class="form-control" required>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+    <form action="/validate_email" method="post">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" class="form-control" required>
+        <button type="submit" class="btn btn-success">Validate Email</button>
+    </form>
+    {% if test_string and regex_pattern %}
+        <h2>Results:</h2>
+        {% if matches %}
+            <ul>
+                {% for match in matches %}
+                    <li>{{ match }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matches found.</p>
+        {% endif %}
+    {% endif %}
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

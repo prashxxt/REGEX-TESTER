@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation Results</title>
+</head>
+<body>
+    <h1>Email Validation Results</h1>
+    <p>Entered Email: {{ email }}</p>
+    {% if is_email_valid %}
+        <p style="color: rgb(153, 23, 208);">Valid Email Address</p>
+    {% else %}
+        <p style="color: red;">Invalid Email Address</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
